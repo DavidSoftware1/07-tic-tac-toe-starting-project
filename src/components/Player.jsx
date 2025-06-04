@@ -1,6 +1,7 @@
 import { useState } from "react";
 
-export default function Player({ initialName, symbol }) {
+export default function Player({ initialName, symbol,isActive }) {
+  // Verwende useState, um den Zustand des Spielernamens und des Bearbeitungsmodus zu verwalten
   const [playerName, setPlayerName] = useState(initialName);
   const [isEditing, setIsEditing] = useState(false);
 
@@ -23,7 +24,8 @@ export default function Player({ initialName, symbol }) {
   //btn caption = "Speichern";
 
   return (
-    <li>
+    <li className={isActive ? "active" : undefined}>
+      {/* Hier wird die Klasse "active" hinzugefügt, wenn isActive true ist */}
       <span className="player">
         {editablePlayerName}
 
